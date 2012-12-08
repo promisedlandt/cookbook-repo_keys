@@ -18,7 +18,7 @@ action :create_or_update do
   key_attributes = { "label" => new_resource.label,
                      "key" => public_key }
 
-  if (current_key = existing_keys.detect { |key| key[:key] == public_key })
+  if (existing_keys && current_key = existing_keys.detect { |key| key[:key] == public_key })
     if key_attributes.all? { |k, v| current_key[k] == v }
       Chef::Log.info "Key already exists for #{ accountname }/#{ new_resource.repo_slug }, skipping"
     else
