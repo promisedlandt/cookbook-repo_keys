@@ -4,7 +4,7 @@ Manage your Bitbucket or Github deploy ssh keys via Chef.
 
 # Shoulders of giants
 
-This uses the [bitbucket_rest_api](https://github.com/vongrippen/bitbucket) gem.
+This uses the [bitbucket_rest_api](https://github.com/vongrippen/bitbucket) gem for Bitbucket integration, and the [github_api](https://github.com/peter-murach/github) gem for Github integration.
 
 # Requirements
 
