@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: repo_keys
-# Recipe:: _bitbucket_debian
+# Recipe:: _github_debian
 #
 # Copyright (C) 2012 Nils Landt
 #

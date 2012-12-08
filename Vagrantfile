@@ -49,7 +49,8 @@ Vagrant::Config.run do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.run_list = [
-      "recipe[repo_keys::bitbucket]"
+      "recipe[repo_keys::bitbucket]",
+      "recipe[repo_keys::github]"
     ]
   end
 end

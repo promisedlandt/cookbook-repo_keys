@@ -1,3 +1,4 @@
+recipes/example.rb
 .vagrant
 Berksfile.lock
 Gemfile.lock

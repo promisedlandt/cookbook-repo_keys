@@ -1,6 +1,6 @@
 # repo_keys
 
-Manage your Bitbucket deploy ssh keys via Chef.
+Manage your Bitbucket or Github deploy ssh keys via Chef.
 
 # Shoulders of giants
 
@@ -12,7 +12,7 @@ This uses the [bitbucket_rest_api](https://github.com/vongrippen/bitbucket) gem.
 
 # Platforms
 
-Only tested on Debian. Ubuntu might work. Everything else won't, until you can get bitbucket_rest_api to install, which shouldn't be hard.
+Only tested on Debian. Ubuntu might work. Everything else won't, until you can get bitbucket_rest_api to install, which shouldn't be hard - should be as easy as getting [Nokogiri to install](http://nokogiri.org/tutorials/installing_nokogiri.html).
 
 # Performance
 
@@ -39,6 +39,17 @@ Currently, this cookbook only supports simple authentication.
 
 If you need OAuth, let me know and I'll add it.
 
+## Github
+
+To set deploy keys, you need admin access to the repository.
+
+Currently, this cookbook only supports simple authentication.  
+
+* `node[:repo_keys][:github][:username]` 
+* `node[:repo_keys][:github][:password]`
+
+If you need OAuth, let me know and I'll add it.
+
 # Resources / Providers
 
 ## repo_keys_bitbucket
@@ -58,6 +69,10 @@ key String | SSH public key to set | String |
 key_file | Path to local file to read the SSH key from | String
 label | Name of the key, will be shown in the web UI | String | ""
 
+## repo_keys_github
+
+Currently looks exactly like `repo_keys_bitbucket`
+
 ### Examples
 
 #### Setting a key
@@ -67,8 +82,7 @@ label | Name of the key, will be shown in the web UI | String | ""
       label "repo_keys_demonstration"
     end
 
-
-    repo_keys_bitbucket "my_secret_gem" do
+    repo_keys_github "my_secret_github_gem" do
       key_file "/home/deployer/.ssh/id_rsa.pub"
       label "repo_keys_demonstration_from file"
     end
